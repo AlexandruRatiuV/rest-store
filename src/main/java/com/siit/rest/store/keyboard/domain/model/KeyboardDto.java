@@ -1,4 +1,4 @@
-package com.siit.rest.store.keyboard.domain.entity;
+package com.siit.rest.store.keyboard.domain.model;
 
 
 import lombok.AllArgsConstructor;
@@ -8,13 +8,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-@Table(name = "keyboards")
-public class KeyboardEntity {
+@Builder
+public class KeyboardDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +22,7 @@ public class KeyboardEntity {
 
     private String type;
 
+    private int quantity;
 
 
 }

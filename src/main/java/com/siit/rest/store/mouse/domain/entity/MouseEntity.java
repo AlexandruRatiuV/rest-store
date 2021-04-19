@@ -1,4 +1,4 @@
-package com.siit.rest.store.keyboard.domain.entity;
+package com.siit.rest.store.mouse.domain.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -13,8 +13,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "keyboards")
-public class KeyboardEntity {
+@Table(name = "mouses")
+public class MouseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
