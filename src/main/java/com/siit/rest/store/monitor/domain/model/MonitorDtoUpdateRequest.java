@@ -1,22 +1,20 @@
-package com.siit.rest.store.keyboard.domain.entity;
+package com.siit.rest.store.monitor.domain.model;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.siit.rest.store.stock.domain.entity.StockEntity;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Table(name = "keyboards")
-public class KeyboardEntity {
-
+public class MonitorDtoUpdateRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +26,7 @@ public class KeyboardEntity {
 
     private String type;
 
-
-
+    private int quantity;
 
 
 }

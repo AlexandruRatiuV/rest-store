@@ -1,7 +1,6 @@
 package com.siit.rest.store.keyboard.repository;
 
 import com.siit.rest.store.keyboard.domain.entity.KeyboardEntity;
-import com.siit.rest.store.keyboard.domain.model.KeyboardDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
