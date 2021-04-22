@@ -1,13 +1,13 @@
 package com.siit.rest.store.monitor.domain.model;
 
+import com.siit.rest.store.stock.domain.entity.StockEntity;
+import com.siit.rest.store.stock.domain.model.StockDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Data
@@ -25,7 +25,9 @@ public class MonitorDtoCreateRequest {
 
     private String type;
 
-    private int quantity;
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "keyboard_id")
+    private StockDto entity;
 
 
 

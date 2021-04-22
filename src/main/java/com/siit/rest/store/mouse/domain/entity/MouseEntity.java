@@ -1,6 +1,7 @@
 package com.siit.rest.store.mouse.domain.entity;
 
 
+import com.siit.rest.store.stock.domain.entity.StockEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +27,12 @@ public class MouseEntity {
 
     private String type;
 
+    private int dpi;
+
+
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "keyboard_id")
+    private StockEntity entity;
 
 
 }

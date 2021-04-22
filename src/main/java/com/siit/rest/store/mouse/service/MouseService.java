@@ -4,8 +4,8 @@ package com.siit.rest.store.mouse.service;
 import com.siit.rest.store.mouse.domain.entity.MouseEntity;
 import com.siit.rest.store.mouse.domain.model.MouseDto;
 import com.siit.rest.store.mouse.domain.model.MouseDtoCreateRequest;
-import com.siit.rest.store.mouse.mapper.MouseDtoPostRequestToMouseEntityMapper;
 import com.siit.rest.store.mouse.domain.model.MouseDtoUpdateRequest;
+import com.siit.rest.store.mouse.mapper.MouseDtoPostRequestToMouseEntityMapper;
 import com.siit.rest.store.mouse.mapper.MouseDtoToMouseEntity;
 import com.siit.rest.store.mouse.mapper.MouseEntityToMouseDto;
 import com.siit.rest.store.mouse.repository.MouseRepository;
@@ -53,8 +53,6 @@ public class MouseService {
     }
 
 
-
-
     @Transactional(readOnly = false)
     public MouseDto createMouse(MouseDto mouseDto) {
         MouseEntity mouseEntity = mouseDtoToMouseEntity.mapDtoToEntity(mouseDto);
@@ -66,7 +64,7 @@ public class MouseService {
     @Transactional(readOnly = false)
     public List<MouseDto> createMouses(List<MouseDtoCreateRequest> mouseDtoCreateRequests) {
         return mouseDtoCreateRequests.stream()
-                .map(keyReq ->mouseDtoPostRequestToMouseEntityMapper.mapDtoPostRequestToEntity(keyReq))
+                .map(keyReq -> mouseDtoPostRequestToMouseEntityMapper.mapDtoPostRequestToEntity(keyReq))
                 .map(MouseEntity -> mouseRepository.save(MouseEntity))
                 .map(MouseEntitySaved -> mouseEntityToMouseDto.mapEntityToDto(MouseEntitySaved))
                 .collect(toList());
@@ -77,7 +75,7 @@ public class MouseService {
     @Transactional(readOnly = false)
     public List<MouseDto> createMouseFromFile(MultipartFile file) {
 
-        if(file.isEmpty()){
+        if (file.isEmpty()) {
 
         }
 
@@ -86,7 +84,7 @@ public class MouseService {
         String[] rows = fileContent.split("\n");
 
         List<MouseDtoCreateRequest> toCreate = new ArrayList<>();
-        for(String row : rows){
+        for (String row : rows) {
             String[] rowSplitted = row.split(",");
             if (rowSplitted.length != 0) {
                 MouseDtoCreateRequest mouseDtoCreateRequest = MouseDtoCreateRequest.builder()
@@ -123,7 +121,6 @@ public class MouseService {
     public void deleteMouseByID(Integer id) {
         mouseRepository.deleteById(id);
     }
-
 
 
 }

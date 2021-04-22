@@ -1,43 +1,39 @@
-package com.siit.rest.store.stock.domain.entity;
+package com.siit.rest.store.stock.domain.model;
 
 
-import lombok.AllArgsConstructor;
+import com.siit.rest.store.stock.domain.entity.StockEntity;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
-@EntityListeners(AuditingEntityListener.class)
-@Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-@Table(name = "stock")
-public class StockEntity {
+@Builder
+public class StockDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private int price;
 
-    private Integer price;
+    private int quantity;
 
-    private Integer quantity;
-
-
+    @OneToOne
     @JoinColumn(name = "keyboard_id", referencedColumnName = "id")
     private int keyboard_id;
 
-
+    @OneToOne
     @JoinColumn(name = "monitor_id", referencedColumnName = "id")
     private int monitor_id;
 
-
+    @OneToOne
     @JoinColumn(name = "mouse_id", referencedColumnName = "id")
     private int mouse_id;
+
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "keyboard_id")
+    private StockEntity entity;
 
 
 }

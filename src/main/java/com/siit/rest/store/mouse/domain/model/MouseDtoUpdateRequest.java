@@ -1,14 +1,13 @@
 package com.siit.rest.store.mouse.domain.model;
 
 
+import com.siit.rest.store.stock.domain.entity.StockEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Builder
@@ -26,7 +25,12 @@ public class MouseDtoUpdateRequest {
 
     private String type;
 
-    private int quantity;
+    private int dpi;
+
+
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "keyboard_id")
+    private StockEntity entity;
 
 
 }

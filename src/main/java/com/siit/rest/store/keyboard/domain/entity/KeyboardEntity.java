@@ -1,6 +1,7 @@
 package com.siit.rest.store.keyboard.domain.entity;
 
 
+import com.siit.rest.store.stock.domain.model.StockDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,10 @@ public class KeyboardEntity {
     private String manufacturer;
 
     private String type;
+
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "keyboard_id")
+    private StockEntity entity;
 
 
 

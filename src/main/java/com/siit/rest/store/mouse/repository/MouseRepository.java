@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface MouseRepository extends JpaRepository<MouseEntity, Integer> {
-    List<MouseEntity> findAllByManufacturer (String model);
+    List<MouseEntity> findAllByManufacturer(String model);
 
     List<MouseEntity> findAll();
 
